@@ -1,5 +1,8 @@
 ---
 title: "学习笔记"
+date: 2022-07-26T21:46:25+08:00
+draft: true
 ---
 
-这里是学习笔记分类。
+<!-- This file shouldn't be deleted. It's used to disable the `note/index.html` page. -->
+<!-- We should set this md file to be a draft. Because we don't want to have `note/index.html`. -->
