@@ -64,7 +64,7 @@ banner_srcset:
     - src: "images/banner.webp"
       media: "(min-width: 800px)"
 
-avatar: "avatar.webp"
+avatar: false
 
 # Control the display of the post cover
 # If not set, the banner image will be displayed by default
@@ -260,7 +260,7 @@ dark_mode:
   # true means that the dark mode is enabled by default
   # false means that the dark mode is disabled by default
   # auto means that the dark mode is automatically switched according to the system settings
-  enable: auto # true | false | auto
+  enable: false # true | false | auto
 
 ########################################
 # Analytics
