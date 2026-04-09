@@ -151,3 +151,5 @@ $$\text{模型空间} \rightarrow \text{世界空间} \rightarrow \text{观察�
 ---
 
 > 📌 因为自己比较容易焦虑、急，所以看看大佬的知乎放在这里，回看时鼓励一下自己。
+
+![知乎鼓励](/images/zhihu-encourage.png)
