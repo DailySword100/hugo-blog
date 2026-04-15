@@ -12,13 +12,3 @@ delimiters.inline = [ ["\\(", "\\)"], ["$", "$"] ]
 guessSyntax = true
 noClasses = false
 
-[outputs]
-home = ["Algolia", "HTML", "RSS"]
-page = ["HTML"]
-section = ["HTML", "RSS"]
-
-[outputFormats.Algolia]
-baseName = "algolia"
-isPlainText = true
-mediaType = "application/json"
-notAlternative = true
