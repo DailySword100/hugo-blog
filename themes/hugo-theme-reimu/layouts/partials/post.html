@@ -70,22 +70,8 @@
     <div class="post-info">
       <div class="post-meta">
         <span
-          ><span class="icon-calendar"></span
-          >{{ $page.Date.Format $ctx.Site.Params.dateFormat }}</span
-        >
-        {{- if $ctx.Site.Params.show_update_time -}}
-          <span
-            ><span class="icon-calendar-plus"></span
-            >{{ $page.Lastmod.Format $ctx.Site.Params.dateFormat }}</span
-          >
-        {{- end -}}
-        <span
           ><span class="icon-pencil"></span
           >{{ i18n "post.count" $page.WordCount }}</span
-        >
-        <span
-          ><span class="icon-clock"></span
-          >{{ i18n "post.time" $page.ReadingTime }}</span
         >
       </div>
       <h2 class="post-title">{{ $page.Title }}</h2>

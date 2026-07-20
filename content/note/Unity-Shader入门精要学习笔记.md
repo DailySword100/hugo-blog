@@ -1,6 +1,5 @@
 ---
 title: "Unity Shader 入门精要学习笔记"
-date: 2026-04-06
 categories: [学习笔记]
 tags: [Unity, Shader, 图形学]
 draft: false

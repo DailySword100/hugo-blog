@@ -1,6 +1,5 @@
 ---
 title: "摇摇晃晃的设计模式"
-date: 2026-04-16
 categories: [学习笔记]
 tags: [设计模式, UML]
 draft: false

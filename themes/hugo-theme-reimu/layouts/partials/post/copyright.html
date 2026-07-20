@@ -2,8 +2,6 @@
 {{- $author := .Params.author | default .Site.Params.author -}}
 {{- $title := .Site.Title -}}
 {{- $permalink := .Permalink -}}
-{{- $date := .Date.Format .Site.Params.timeFormat -}}
-{{- $updated := .Lastmod.Format .Site.Params.timeFormat -}}
 
 <blockquote class="article-copyright">
   {{- if $articleCopyright.content.author -}}
@@ -16,12 +14,6 @@
   {{- end -}}
   {{- if $articleCopyright.content.title -}}
     <p><strong><span class="icon-pencil icon"></span>{{ i18n "article_copyright.title" }}</strong>{{ .Title }}</p>
-  {{- end -}}
-  {{- if $articleCopyright.content.date -}}
-    <p><strong><span class="icon-calendar icon"></span>{{ i18n "article_copyright.date" }}</strong>{{ $date }}</p>
-  {{- end -}}
-  {{- if $articleCopyright.content.updated -}}
-    <p><strong><span class="icon-calendar icon"></span>{{ i18n "article_copyright.updated" }}</strong>{{ $updated }}</p>
   {{- end -}}
   {{- if $articleCopyright.content.license -}}
     <p>

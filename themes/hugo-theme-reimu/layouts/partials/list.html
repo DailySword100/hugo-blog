@@ -2,84 +2,27 @@
 {{- $ctx := .ctx -}}
 {{- $type := $ctx.Type -}}
 
-{{- $sort_config := "date-reverse" -}}
+{{- $sortConfig := "date-reverse" -}}
 {{- if eq $type "categories" -}}
-  {{- $sort_config = $ctx.Site.Params.sort_order.taxonomy.category -}}
+  {{- $sortConfig = $ctx.Site.Params.sort_order.taxonomy.category -}}
 {{- else if eq $type "tags" -}}
-  {{- $sort_config = $ctx.Site.Params.sort_order.taxonomy.tag -}}
+  {{- $sortConfig = $ctx.Site.Params.sort_order.taxonomy.tag -}}
 {{- else if eq $type "archives" -}}
-  {{- $sort_config = $ctx.Site.Params.sort_order.archive -}}
+  {{- $sortConfig = $ctx.Site.Params.sort_order.archive -}}
 {{- end -}}
 
-{{- if or (eq $sort_config "weight") (eq $sort_config "weight-reverse") (eq $sort_config "default") -}}
-  <section class="archives-wrap" data-aos="{{ $ctx.Site.Params.animation.options.archive.section }}">
-    <ul>
+<section class="archives-wrap" data-aos="{{ $ctx.Site.Params.animation.options.archive.section }}">
+  <ul>
+    {{- if or (eq $sortConfig "weight") (eq $sortConfig "weight-reverse") (eq $sortConfig "default") -}}
       {{- range $paginator -}}
-        <li class="archive-article">
-          <div class="archive-article-date">
-            <span>
-              <time
-                class="dt-published"
-                datetime="{{ .Date }}"
-                itemprop="datePublished"
-                >{{ .Date.Format $ctx.Site.Params.monthFormat }}</time
-              >
-            </span>
-          </div>
-          {{- if .Params.link -}}
-            <a
-              class="archive-article-title"
-              href="{{ .Params.link }}"
-              target="_blank"
-              itemprop="url"
-              rel="noopener nofollow noreferrer"
-              >{{ .Title }}</a
-            >
-          {{- else if .Title -}}
-            <a class="archive-article-title" href="{{ .Permalink | relURL }}"
-              >{{ .Title }}</a
-            >
-          {{- end -}}
-        </li>
+        {{- partial "post/list-item.html" . -}}
       {{- end -}}
-    </ul>
-  </section>
-{{- else -}}
-{{- range $paginator -}}
-  <section class="archives-wrap" data-aos="{{ $ctx.Site.Params.animation.options.archive.section }}">
-    <div class="archive-year-wrap">
-      <span class="archive-year">{{ .Key }}</span>
-    </div>
-    <ul>
-      {{- range .Pages -}}
-        <li class="archive-article">
-          <div class="archive-article-date">
-            <span>
-              <time
-                class="dt-published"
-                datetime="{{ .Date }}"
-                itemprop="datePublished"
-                >{{ .Date.Format $ctx.Site.Params.monthFormat }}</time
-              >
-            </span>
-          </div>
-          {{- if .Params.link -}}
-            <a
-              class="archive-article-title"
-              href="{{ .Params.link }}"
-              target="_blank"
-              itemprop="url"
-              rel="noopener nofollow noreferrer"
-              >{{ .Title }}</a
-            >
-          {{- else if .Title -}}
-            <a class="archive-article-title" href="{{ .Permalink | relURL }}"
-              >{{ .Title }}</a
-            >
-          {{- end -}}
-        </li>
+    {{- else -}}
+      {{- range $paginator -}}
+        {{- range .Pages -}}
+          {{- partial "post/list-item.html" . -}}
+        {{- end -}}
       {{- end -}}
-    </ul>
-  </section>
-{{- end -}}
-{{- end -}}
+    {{- end -}}
+  </ul>
+</section>

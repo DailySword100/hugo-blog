@@ -7,31 +7,18 @@
     class="article-inner"
     data-aos="{{ .Site.Params.animation.options.article.whole }}"
   >
-    <div class="article-meta">
-      {{- partial "post/date.html" . -}}
-    </div>
     {{- partial "post/summary.html" . -}}
     <div class="hr-line"></div>
     {{- partial "post/gallery.html" . -}}
     <div class="e-content article-entry" itemprop="articleBody">
-      {{- if .Params.outdated -}}
-        <blockquote class="alert-blockquote warning">
-          <p class="alert-heading">WARNING</p>
-          <p>
-            {{ $msg := index .Site.Params.outdate.message $.Language.Lang | default "This article was last updated on {time}. Please note that the content may no longer be applicable." }}
-            {{ replace $msg "{time}" ($.Lastmod.Format $.Site.Params.dateFormat) }}
-          </p>
-        </blockquote>
-      {{- else if and (not (isset .Params "outdated")) .Site.Params.outdate.enable -}}
-        <blockquote
-          class="alert-blockquote warning"
-          id="outdate-blockquote"
-          style="display: none;"
-        >
-          <p class="alert-heading">WARNING</p>
-          <p></p>
-        </blockquote>
-      {{- end -}}
+      <blockquote class="alert-blockquote warning ai-workflow-notice">
+        <p class="alert-heading">AI WORKFLOW</p>
+        <p>
+          本博客由 AI 工作流自动管理，文章根据博主的个人笔记及与 GPT
+          的对话习惯自动整理，主要用于博主复习、整理与查阅。内容可能存在错误或
+          AI 幻觉，请结合可靠资料自行鉴别。
+        </p>
+      </blockquote>
       {{- if and .Params.excerpt .Params.link -}}
         <p>{{ .Params.excerpt | safeHTML }}</p>
         <p class="article-more-link">

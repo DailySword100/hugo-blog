@@ -16,7 +16,6 @@
   {{- $pages = where $pages "Language.Lang" $currentLanguage }}
 {{- end }}
 
-{{- $pages = $pages.ByLastmod.Reverse }}
 {{- $limit := .Site.Params.rss.limit | default 10 }}
 {{- if ge $limit 1 }}
   {{- $pages = $pages | first $limit }}
@@ -35,9 +34,6 @@
     <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>
     {{ end }}
     <copyright>{{ $copyright }}</copyright>
-    {{ if not .Date.IsZero }}
-    <lastBuildDate>{{ (index $pages 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
-    {{ end }}
     {{ with .OutputFormats.Get "RSS" }}
     <atom:link href="{{ .Permalink }}" rel="self" type="{{ .MediaType }}" />
     {{ end }}
@@ -49,8 +45,7 @@
 
     {{- /* 构建多语言文章尾部 */ -}}
     {{- $articleFooterContent := printf "<a href='%s'>%s</a>" .Site.BaseURL .Site.Title -}}
-    {{- $articleFooterI18n := i18n "rss.date" (dict "pubDate" (.Date.Format "2006-01-02") "lastmod" (.Lastmod.Format "2006-01-02") "content" ($articleFooterContent | safeHTML)) -}}
-    {{- $articleFooter := printf "<hr><p>%s</p>" $articleFooterI18n -}}
+    {{- $articleFooter := printf "<hr><p><a href='%s'>%s</a></p>" .Site.BaseURL .Site.Title -}}
 
     {{- if $showCopyright }}
       {{ $articleFooter = printf "%s<p>%s</p>" $articleFooter $copyright }}
@@ -60,7 +55,6 @@
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
-      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
       {{ with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
       <description>

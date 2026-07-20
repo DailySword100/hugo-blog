@@ -1,0 +1,16 @@
+<li class="archive-article">
+  {{- if .Params.link -}}
+    <a
+      class="archive-article-title"
+      href="{{ .Params.link }}"
+      target="_blank"
+      itemprop="url"
+      rel="noopener nofollow noreferrer"
+      >{{ .Title }}</a
+    >
+  {{- else if .Title -}}
+    <a class="archive-article-title" href="{{ .Permalink | relURL }}"
+      >{{ .Title }}</a
+    >
+  {{- end -}}
+</li>
