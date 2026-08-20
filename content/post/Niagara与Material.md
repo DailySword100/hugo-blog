@@ -125,10 +125,6 @@ DepthFade 可以根据深度对透明物体做淡化。注意这依赖引擎的�
 
 ![光斑的衰减与反比例函数](/images/niagara-flare-attenuation.png)
 
-![Flare 材质参考](/images/niagara-flare-material.png)
-
-![Flare 效果参考](/images/niagara-flare-preview.png)
-
 ## Lerp（Linear Interpolate，线性插值）
 
 这是整个图形学、Shader 编写和特效制作中，最伟大、最常用、最核心的节点，没有之一。
@@ -216,8 +212,6 @@ UE 最标准、用得最多的 PBR 模式。
 ### 如何进行补帧
 
 使用 SubUV 进行交叉补帧。Motion Vector 数据图主要存储方向信息，一些 DCC 软件都可以输出这张图，例如 Houdini、Maya。
-
-![SubUV 与 Motion Vector 补帧](/images/niagara-subuv-motion-vector.png)
 
 ## 0406 向量
 
