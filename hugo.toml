@@ -22,3 +22,51 @@ baseName = "algolia"
 isPlainText = true
 mediaType = "application/json"
 notAlternative = true
+
+[params]
+mainSections = ["post"]
+
+[[params.menu]]
+name = "home"
+url = ""
+
+[[params.menu]]
+name = "category"
+url = "categories"
+
+[[params.menu]]
+name = "archives"
+url = "archives"
+
+[[params.menu]]
+name = "about"
+url = "about/about"
+
+[params.home_categories]
+enable = true
+
+[[params.home_categories.content]]
+categories = "计算机基础"
+
+[[params.home_categories.content]]
+categories = "游戏客户端开发"
+
+[[params.home_categories.content]]
+categories = "技术美术"
+
+[[params.home_categories.content]]
+categories = "AI"
+
+[[params.home_categories.content]]
+categories = "个人作品开发文档"
+
+[[params.home_categories.content]]
+categories = "游戏美术"
+
+[params.sort_order]
+home = "weight"
+archive = "weight"
+
+[params.sort_order.taxonomy]
+category = "weight"
+tag = "weight"
