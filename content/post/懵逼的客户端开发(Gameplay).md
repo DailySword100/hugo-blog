@@ -1,11 +1,13 @@
 ---
 title: "懵逼的客户端开发(Gameplay)"
-categories: [学习笔记]
+categories: [游戏客户端开发]
 tags: [UI, Unreal, 客户端]
 draft: false
 ---
 
 # 懵逼的客户端开发(Gameplay)
+
+此博客为AI工作流自动管理，由博主的个人笔迹与GPT对话习惯自动整理，为博主复习整理查阅，必有错误，请注意鉴别是否AI幻觉。
 
 ## UI 设计原则
 
