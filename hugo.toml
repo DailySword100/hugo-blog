@@ -26,6 +26,9 @@ notAlternative = true
 [params]
 mainSections = ["post"]
 
+[params.injector]
+head_end = '<link rel="stylesheet" href="/css/site-typography.css">'
+
 [[params.menu]]
 name = "home"
 url = ""

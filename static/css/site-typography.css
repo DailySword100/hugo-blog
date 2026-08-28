@@ -1,0 +1,137 @@
+:root {
+  --color-default: #292929;
+  --grey-9: #696969;
+  --color-wrap: rgba(255, 255, 255, 0.98);
+  --color-header-background: rgba(255, 255, 255, 0.96);
+}
+
+[data-theme="dark"] {
+  --color-default: #e2e5e8;
+  --grey-9: #b8bec5;
+  --color-wrap: rgba(39, 43, 48, 0.98);
+  --color-header-background: rgba(34, 34, 34, 0.97);
+}
+
+html,
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.article-entry {
+  color: var(--color-default);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.article-entry p,
+.article-entry li,
+.article-entry table {
+  line-height: 1.85;
+}
+
+.article-entry p {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.article-entry h1,
+.article-entry h2,
+.article-entry h3,
+.article-entry h4,
+.article-entry h5,
+.article-entry h6,
+.article-title,
+.post-title {
+  color: var(--color-default);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.article-entry h2,
+.article-entry h3 {
+  line-height: 1.45;
+}
+
+.post-title {
+  color: var(--color-link);
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+.post-article {
+  color: var(--color-default);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.post-meta,
+.post-meta span,
+.article-meta,
+.article-meta span {
+  color: var(--grey-9);
+}
+
+.home-profile-card {
+  background: var(--color-wrap) !important;
+}
+
+.home-profile-content p {
+  color: var(--color-default) !important;
+  font-size: 16px !important;
+  font-weight: 400;
+  line-height: 1.85 !important;
+}
+
+.home-profile-content h2 {
+  font-weight: 700;
+}
+
+#sidebar,
+.sidebar-wrap {
+  color: var(--color-default);
+}
+
+#sidebar p,
+#sidebar li,
+#sidebar a:not(:hover) {
+  font-weight: 400;
+}
+
+.post-wrap,
+.article-inner,
+.sidebar-wrap,
+.category-article-header {
+  background-color: var(--color-wrap);
+}
+
+a,
+.article-entry a,
+.post-title,
+.category-article-header h1 {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  html,
+  body,
+  .article-entry,
+  .post-article,
+  .home-profile-content p {
+    font-size: 16px;
+  }
+
+  .article-entry {
+    line-height: 1.8;
+  }
+
+  .post-title {
+    font-size: 22px;
+  }
+}
