@@ -2,6 +2,8 @@
 title: "雪景环境Demo开发文档"
 categories: [个人作品开发文档]
 tags: [Unreal Engine 5, 环境制作, PCG, Material, Render Target, VHM, RVT, 交互雪]
+cover: "/images/covers/snow-environment-demo.png"
+banner: "/images/covers/snow-environment-demo.png"
 draft: false
 ---
 

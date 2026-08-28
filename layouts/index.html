@@ -1,0 +1,84 @@
+{{- define "main" -}}
+  {{- $ctx := . -}}
+  {{- $posts := where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
+
+  <style>
+    .home-category-section {
+      margin-bottom: 32px;
+      padding: 22px 22px 1px;
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--color-wrap) 88%, transparent);
+      box-shadow: var(--shadow-card);
+    }
+
+    .home-category-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 22px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--red-1);
+    }
+
+    .home-category-title {
+      margin: 0;
+      font-size: 26px;
+      color: var(--color-link);
+    }
+
+    .home-category-count {
+      flex-shrink: 0;
+      color: var(--grey-7);
+      font-size: 14px;
+    }
+
+    .home-category-empty {
+      margin: 0 0 22px;
+      padding: 32px 20px;
+      border: 1px dashed var(--red-1);
+      border-radius: 8px;
+      color: var(--grey-7);
+      text-align: center;
+      background: var(--color-wrap);
+    }
+
+    .home-category-section .post-wrap:last-child,
+    .home-category-section .post-wrapper:last-child .post-wrap {
+      margin-bottom: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .home-category-section {
+        padding: 16px 14px 1px;
+      }
+
+      .home-category-title {
+        font-size: 22px;
+      }
+    }
+  </style>
+
+  {{- range $categoryIndex, $categoryConfig := .Site.Params.home_categories.content -}}
+    {{- $category := $categoryConfig.categories -}}
+    {{- if $category -}}
+      {{- $categoryPages := where $posts "Params.categories" "intersect" (slice $category) -}}
+      <section class="home-category-section" data-home-category="{{ $category }}" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
+        <header class="home-category-header">
+          <h2 class="home-category-title">
+            <a href="{{ (printf "%s%s" "categories/" (urlize $category)) | relLangURL }}">{{ $category }}</a>
+          </h2>
+          <span class="home-category-count">{{ len $categoryPages }} 篇文章</span>
+        </header>
+
+        {{- if gt (len $categoryPages) 0 -}}
+          {{- range $articleIndex, $article := $categoryPages.ByWeight -}}
+            {{- partial "post.html" (dict "index" $articleIndex "ctx" $ctx "page" $article) -}}
+          {{- end -}}
+        {{- else -}}
+          <p class="home-category-empty">暂无文章，后续补充。</p>
+        {{- end -}}
+      </section>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
