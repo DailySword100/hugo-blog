@@ -46,22 +46,22 @@ url = "about/about"
 enable = true
 
 [[params.home_categories.content]]
-categories = "计算机基础"
-
-[[params.home_categories.content]]
-categories = "游戏客户端开发"
+categories = "个人作品开发文档"
 
 [[params.home_categories.content]]
 categories = "技术美术"
 
 [[params.home_categories.content]]
+categories = "游戏美术"
+
+[[params.home_categories.content]]
 categories = "AI"
 
 [[params.home_categories.content]]
-categories = "个人作品开发文档"
+categories = "游戏客户端开发"
 
 [[params.home_categories.content]]
-categories = "游戏美术"
+categories = "计算机基础"
 
 [params.sort_order]
 home = "weight"
