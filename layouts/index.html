@@ -1,5 +1,93 @@
 {{- define "main" -}}
   {{- $ctx := . -}}
+  <style>
+    .home-profile-card {
+      position: relative;
+      margin-bottom: 34px;
+      padding: 30px 34px 28px;
+      overflow: hidden;
+      border-top: 3px solid var(--red-1);
+      border-radius: 12px;
+      background: color-mix(in srgb, var(--color-wrap) 92%, transparent);
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(8px);
+    }
+
+    .home-profile-label {
+      margin-bottom: 12px;
+      color: var(--red-1);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .home-profile-content h2 {
+      margin: 0 0 20px;
+      color: var(--red-1);
+      font-size: 30px;
+      line-height: 1.3;
+    }
+
+    .home-profile-content p {
+      margin: 0 0 16px;
+      color: var(--grey-7);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .home-profile-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .home-profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid color-mix(in srgb, var(--red-1) 24%, transparent);
+    }
+
+    .home-profile-link {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 18px;
+      border: 1px solid var(--red-1);
+      border-radius: 20px;
+      color: var(--red-1);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+
+    .home-profile-link:hover {
+      color: #fff;
+      background: var(--red-1);
+    }
+
+    @media (max-width: 768px) {
+      .home-profile-card {
+        padding: 24px 22px;
+      }
+
+      .home-profile-content h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+
+  <section class="home-profile-card" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
+    <div class="home-profile-label">ABOUT ME</div>
+    <div class="home-profile-content">{{ .Content }}</div>
+    <div class="home-profile-links">
+      <a class="home-profile-link" href="https://space.bilibili.com/398456974" target="_blank" rel="noopener noreferrer">Bilibili 主页</a>
+    </div>
+  </section>
+
   <div class="post-categories-wrapper" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
     {{- range $categoryConfig := $ctx.Site.Params.home_categories.content -}}
       {{- $category := $categoryConfig.categories -}}
